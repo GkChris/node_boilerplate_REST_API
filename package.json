@@ -2,15 +2,15 @@
   "name": "mvc-boilerplate",
   "version": "1.0.0",
   "description": "Simple node.js express boilerplace implementing mvc structure.",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "NODE_ENV=production pm2 start src/app.js -i 1 --max-memory-restart 200M --name MVC Boiler -- --color",
-    "dev": "NODE_ENV=development nodemon src/app.js --trace-warnings",
+    "start": "NODE_ENV=production pm2 start app.js -i 1 --max-memory-restart 200M --name MVC Boiler -- --color",
+    "dev": "NODE_ENV=development nodemon app.js --trace-warnings",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:GkChris/node-boilerplate.git"
   },
   "author": "Christos Gkagkas",
   "license": "ISC",
