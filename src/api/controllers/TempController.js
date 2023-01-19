@@ -19,12 +19,16 @@ router.route(routes.getTemp)
 .get( async (req, res) => {
 
     let success = req.query?.success;
-    
-    let testActions = await tempService.test_actions(success)
 
-    if ( !testActions ) {
+    try {
+
+        await tempService.test_actions(success)
+
+    } catch {
+
         res.locals.message = statusCodes.internal_server_error.msg
         return res.status(statusCodes.internal_server_error.code).send();
+
     }
 
     res.locals.message = statusCodes.ok.msg;
