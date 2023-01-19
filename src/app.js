@@ -10,9 +10,10 @@ const resolvePath = require('path').resolve;
 const chalk = require('chalk');
 const figlet = require('figlet');
 
-const loggers = require('./config').loggers;
-const appConfigurations = require('./config').appConfigurations;
-const databaseConfigurations = require('./config').databaseConfigurations;
+const config = require('./config');
+const loggers = config.Loggers;
+const appConfigurations = config.AppConfigurations;
+const databaseConfigurations = config.DatabaseConfigurations;
 
 // Express app initialization
 var app = express();

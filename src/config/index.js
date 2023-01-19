@@ -7,16 +7,16 @@ const env = dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 
 if (env.hasOwnProperty('error')) throw new Error('No .env file!');
 
-const appConfigurations = require('./AppConfigurations');
-const databaseConfigurations = require('./DatabaseConfiguration');
-const loggers = require('./Loggers');
+const AppConfigurations = require('./AppConfigurations');
+const DatabaseConfigurations = require('./DatabaseConfiguration');
+const Loggers = require('./Loggers');
 const MqttConfigurations = require('./MqttConfigurations');
 const ValidationConfigurations = require('./ValidationConfigurations');
 
 module.exports = {
-    appConfigurations,
-    databaseConfigurations,
-    loggers,
+    AppConfigurations,
+    DatabaseConfigurations,
+    Loggers,
     MqttConfigurations,
     ValidationConfigurations
 };
