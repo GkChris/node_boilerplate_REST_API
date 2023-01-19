@@ -1,0 +1,13 @@
+{
+
+    "bad_gateway": {
+        "code": 502,
+        "msg": "Bad Gateway"
+    },
+
+    "created": {
+        "code": 201,
+        "msg": "Created"
+    }
+
+}

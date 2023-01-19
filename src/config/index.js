@@ -12,13 +12,15 @@ const DatabaseConfigurations = require('./DatabaseConfiguration');
 const Loggers = require('./Loggers');
 const MqttConfigurations = require('./MqttConfigurations');
 const ValidationConfigurations = require('./ValidationConfigurations');
+const StatusCodes = require('./StatusCodes.json');
 
 module.exports = {
     AppConfigurations,
     DatabaseConfigurations,
     Loggers,
     MqttConfigurations,
-    ValidationConfigurations
+    ValidationConfigurations,
+    StatusCodes
 };
 
 
