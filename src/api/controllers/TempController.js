@@ -1,11 +1,16 @@
 const express = require('express');
+
 var router = express.Router();
+const statusCodes = require('../../config').StatusCodes;
+const tempService = require('../services').TempService 
 
 // Module routes
 const routes = {
     getTemp: '/getTemp$',
 
-    createTemp: '/createTemp$'
+    createTemp: '/createTemp$',
+
+    updateTemp: '/updateTemp$'
 }
 
 
@@ -13,17 +18,17 @@ const routes = {
 router.route(routes.getTemp)
 .get( async (req, res) => {
 
-    if (req.query?.fail == 1) {
+    let success = req.query?.success;
+    
+    let testActions = await tempService.test_actions(success)
 
-        res.locals.message = `Something went wrong`;
-
-        return res.status(400).send();
-
+    if ( !testActions ) {
+        res.locals.message = statusCodes.internal_server_error.msg
+        return res.status(statusCodes.internal_server_error.code).send();
     }
 
-    res.locals.message = `Something went right`;
-
-    res.status(200).send();
+    res.locals.message = statusCodes.ok.msg;
+    res.status(statusCodes.ok.code).send();
 
 });
 
@@ -31,10 +36,12 @@ router.route(routes.getTemp)
 router.route(routes.createTemp)
 .post(async (req, res) => {
 
+});
 
-    res.locals.message = `Something went right`;
 
-    res.status(200).send();
+router.route(routes.updateTemp)
+.put(async (req, res) => {
+
 });
 
 module.exports = router;

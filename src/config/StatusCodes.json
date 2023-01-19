@@ -8,6 +8,16 @@
     "created": {
         "code": 201,
         "msg": "Created"
+    },
+
+    "ok": {    
+        "code": 200,
+        "msg": "OK"
+    },
+
+    "internal_server_error": {
+        "code": 500,
+        "msg": "Internal Server Error"
     }
 
 }
