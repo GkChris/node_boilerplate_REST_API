@@ -7,9 +7,11 @@ module.exports = (tokens, req, res) => {
   if (res.statusCode >= 400) status = chalk.redBright(`[ error ] > ${res.req?.route?.path} | ` + res.locals.message);
   else status = chalk.greenBright(`[success] > ${res.req?.route?.path} | ` + res.locals.message);
 
+  let time = new Date(new Date().getTime());
+
   return [
     status,
-    tokens.date(req, res), '-',
+    time, '-',
     tokens['response-time'](req, res), 'ms'
   ].join(' ');
 };
