@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const compression = require('compression');
 
 const resolvePath = require('path').resolve;
 
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV == 'development') app.use(cors())
 app.use(helmet());
 app.use(morgan(loggers));
 app.use(bodyParser.json())
+app.use(compression())
 app.use(require('./api/router'));
 
 app.listen(appConfigurations.port, appConfigurations.ip, () => {
