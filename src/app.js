@@ -12,9 +12,10 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 
 const config = require('./config');
-const loggers = config.Loggers;
 const appConfigurations = config.AppConfigurations;
 const databaseConfigurations = config.DatabaseConfigurations;
+
+const logger = require('./api/middleware/logger');
 
 // Express app initialization
 var app = express();
@@ -22,7 +23,7 @@ var app = express();
 // Middleware
 if (process.env.NODE_ENV == 'development') app.use(cors())
 app.use(helmet());
-app.use(morgan(loggers));
+app.use(morgan(logger));
 app.use(bodyParser.json())
 app.use(compression())
 app.use(require('./api/middleware/cache'));
