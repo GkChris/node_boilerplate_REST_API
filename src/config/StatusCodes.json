@@ -1,8 +1,8 @@
 {
 
-    "bad_gateway": {
-        "code": 502,
-        "msg": "Bad Gateway"
+    "ok": {
+        "code": 200,
+        "msg": "OK"
     },
 
     "created": {
@@ -10,14 +10,44 @@
         "msg": "Created"
     },
 
-    "ok": {    
-        "code": 200,
-        "msg": "OK"
+    "accepted": {
+        "code": 202,
+        "msg": "Accepted"  
+    },
+
+    "bad_request": {
+        "code": 400,
+        "msg": "Bad Request"
+    },
+
+    "unauthorized": {
+        "code": 401,
+        "msg": "Unauthorized"
+    },
+
+    "forbidden": {
+        "code": 403,
+        "msg": "Forbidden"
+    },
+
+    "not_acceptable": {
+        "code": 406,
+        "msg": "Not Acceptable"
+    },
+
+    "unsupported_media_type": {
+        "code": 415,
+        "msg": "Unsupported Media Type"
     },
 
     "internal_server_error": {
         "code": 500,
         "msg": "Internal Server Error"
+    },
+
+    "bad_gateway": {
+        "code": 502,
+        "msg": "Bad Gateway"
     }
 
 }
