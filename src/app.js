@@ -25,6 +25,7 @@ app.use(helmet());
 app.use(morgan(loggers));
 app.use(bodyParser.json())
 app.use(compression())
+app.use(require('./api/middleware/cache'));
 app.use(require('./api/router'));
 
 app.listen(appConfigurations.port, appConfigurations.ip, () => {
