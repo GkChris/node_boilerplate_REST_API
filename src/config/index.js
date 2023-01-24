@@ -9,18 +9,20 @@ if (env.hasOwnProperty('error')) throw new Error('No .env file!');
 
 const AppConfigurations = require('./AppConfigurations');
 const DatabaseConfigurations = require('./DatabaseConfiguration');
-const MqttConfigurations = require('./MqttConfigurations');
-const ValidationConfigurations = require('./ValidationConfigurations');
-const StatusCodes = require('./StatusCodes.json');
 const CacheConfigurations = require('./CacheConfigurations');
+const MqttConfigurations = require('./MqttConfigurations');
+const Validations = require('./Validations');
+const StatusCodes = require('./StatusCodes.json');
+const Loggers = require('./Loggers');
 
 module.exports = {
     AppConfigurations,
     DatabaseConfigurations,
+    CacheConfigurations,
     MqttConfigurations,
-    ValidationConfigurations,
+    Validations,
     StatusCodes,
-    CacheConfigurations
+    Loggers
 };
 
 
