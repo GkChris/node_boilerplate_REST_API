@@ -1,3 +1,4 @@
+const statusCodes = require('../../config').StatusCodes
 const mqtt = require('mqtt')
 const mqttConfig = require('../../config').MqttConfigurations
 const backend_name = require('../../config').AppConfigurations.backend_name;
@@ -23,7 +24,7 @@ function publish(topic, message){
             client.publish(topic, message, function (err) {
                 if(err) {
                     console.log('err',err);
-                    resolve(false);
+                    reject(new Error(`${statusCodes.internal_server_error.msg} | ${err}`))
                     return;
                 }
 
