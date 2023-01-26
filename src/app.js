@@ -26,6 +26,7 @@ app.use(morgan(loggers));
 app.use(bodyParser.json())
 app.use(require('./api/middleware/cache'));
 app.use(require('./api/router'));
+app.use(require('./api/middleware/errorHandler'));
 
 app.listen(appConfigurations.port, appConfigurations.ip, () => {
 

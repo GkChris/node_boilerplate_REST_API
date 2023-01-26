@@ -29,6 +29,7 @@ function publish(topic, message){
 
                 client.end();
                 resolve(true);
+                return
             })  
         })
     })

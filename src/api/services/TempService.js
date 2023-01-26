@@ -1,11 +1,23 @@
-function test_actions(success){
-    return new Promise(async(resolve, reject) => {
-        if (success) resolve(true);
-        else reject(new Error('Failure'))
+const statusCodes = require('../../config').StatusCodes
+
+function get_success(){
+    return new Promise((resolve, reject) => {
+        resolve(true)
+        return
+    })
+}
+
+
+function get_error(){
+    return new Promise((resolve, reject) => {
+        reject(new Error(`${statusCodes.internal_server_error.msg} | ${'This is a temp promise that is meant to fail'}`))
+        return
     })
 }
 
 
 module.exports = {
-    test_actions
-}   
+    get_success,
+    get_error
+}
+

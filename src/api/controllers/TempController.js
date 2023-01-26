@@ -1,51 +1,50 @@
 const express = require('express');
-
 var router = express.Router();
+
 const statusCodes = require('../../config').StatusCodes;
 const tempService = require('../services').TempService 
 
+
 // Module routes
 const routes = {
-    getTemp: '/getTemp$',
-
-    createTemp: '/createTemp$',
-
-    updateTemp: '/updateTemp$'
+    getSuccess: '/getSuccess$',
+    getError: '/getError$'
 }
 
-
-
-router.route(routes.getTemp)
+router.route(routes.getSuccess)
 .get( async (req, res) => {
-
-    let success = req.query?.success;
 
     try {
 
-        await tempService.test_actions(success)
-
-    } catch {
-
-        res.locals.message = statusCodes.internal_server_error.msg
-        return res.status(statusCodes.internal_server_error.code).send();
-
+        await tempService.get_success()
+        
+    } catch ( error ) {
+      
+        next(error)
+    
     }
 
     res.locals.message = statusCodes.ok.msg;
-    res.status(statusCodes.ok.code).send();
+    return res.status(statusCodes.ok.code).send()
 
 });
 
 
-router.route(routes.createTemp)
-.post(async (req, res) => {
+router.route(routes.getError)
+.get( async (req, res, next) => {
+
+    try {
+
+        await tempService.get_error()
+        
+    } catch ( error ) {
+       next(error)
+    }   
+
+    res.locals.message = statusCodes.ok.msg;
+    return res.status(statusCodes.ok.code).send()
 
 });
 
-
-router.route(routes.updateTemp)
-.put(async (req, res) => {
-
-});
 
 module.exports = router;

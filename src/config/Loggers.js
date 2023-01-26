@@ -5,9 +5,10 @@ module.exports = (tokens, req, res) => {
 
   let status;
   let path = res.req?.route?.path ? res.req?.route?.path : req.originalUrl
+  let message = res.locals.message ? res.locals.message : 'Endpoint does not exist' 
 
-  if (res.statusCode >= 400) status = chalk.redBright(`[ error ] > ${path} | ` + res.locals.message);
-  else status = chalk.greenBright(`[success] > ${path} | ` + res.locals.message);
+  if (res.statusCode >= 400) status = chalk.redBright(`[ error ] > ${path} | ` + message);
+  else status = chalk.greenBright(`[success] > ${path} | ` + message);
 
   let time = new Date(new Date().getTime());
 
