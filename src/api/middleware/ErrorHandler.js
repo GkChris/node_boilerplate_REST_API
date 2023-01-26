@@ -34,6 +34,7 @@ module.exports = (err, req, res, next) => {
         
     }
 
+    res.locals.message = err.message
     return res.status(statusCodes.internal_server_error.code.json({message: 'Something went wrong'}))
 
 
