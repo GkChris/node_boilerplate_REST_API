@@ -24,9 +24,9 @@ if (process.env.NODE_ENV == 'development') app.use(cors())
 app.use(helmet());
 app.use(morgan(loggers));
 app.use(bodyParser.json())
-app.use(require('./api/middleware/cache'));
+app.use(require('./api/middleware/Cache'));
 app.use(require('./api/router'));
-app.use(require('./api/middleware/errorHandler'));
+app.use(require('./api/middleware/ErrorHandler'));
 
 app.listen(appConfigurations.port, appConfigurations.ip, () => {
 
