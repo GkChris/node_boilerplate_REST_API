@@ -35,9 +35,19 @@
         "msg": "Not Acceptable"
     },
 
+    "conflict": {
+        "code": 409,
+        "msg": "Conflict"
+    },  
+
     "unsupported_media_type": {
         "code": 415,
         "msg": "Unsupported Media Type"
+    },
+
+    "unprocessable_entity": {
+        "code": 422,
+        "msg": "Unprocessable Entity"
     },
 
     "internal_server_error": {
