@@ -35,10 +35,10 @@ module.exports = (err, req, res, next) => {
                 message: statusCodes.unsupported_media_type.msg,
                 code: statusCodes.unsupported_media_type.code });
         }
-        case err.message.includes(statusCodes.unprocessable_entity.msg): {
-            return res.status(statusCodes.unprocessable_entity.code).json({ 
-                message: statusCodes.unprocessable_entity.msg,
-                code: statusCodes.unprocessable_entity.code });
+        case err.message.includes(statusCodes.unprocessable_content.msg): {
+            return res.status(statusCodes.unprocessable_content.code).json({ 
+                message: statusCodes.unprocessable_content.msg,
+                code: statusCodes.unprocessable_content.code });
         }
         case err.message.includes(statusCodes.internal_server_error.msg): {
             return res.status(statusCodes.internal_server_error.code).json({ 

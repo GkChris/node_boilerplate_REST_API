@@ -13,7 +13,7 @@ function create_user(args){
         
         ) {
            
-            reject(new Error(`${statusCodes.bad_request.msg} | Missing required arguments`))
+            reject(new Error(`${statusCodes.unprocessable_content.msg} | Missing required arguments`))
             
             return
         }
@@ -28,7 +28,7 @@ function create_user(args){
         
         ) {
     
-            reject(new Error(`${statusCodes.unprocessable_entity.msg} | Argument(s) failed to pass validation`))
+            reject(new Error(`${statusCodes.unprocessable_content.msg} | Argument(s) failed to pass validation`))
     
             return
         }
@@ -40,7 +40,7 @@ function create_user(args){
 
         } catch ( error ) {
 
-            reject(new Error(`${statusCodes.bad_request.msg} | ${error}`))
+            reject(new Error(`${statusCodes.unprocessable_content.msg} | ${error}`))
 
             return
 

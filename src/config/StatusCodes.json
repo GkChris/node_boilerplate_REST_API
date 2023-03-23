@@ -45,9 +45,9 @@
         "msg": "Unsupported Media Type"
     },
 
-    "unprocessable_entity": {
+    "unprocessable_content": {
         "code": 422,
-        "msg": "Unprocessable Entity"
+        "msg": "Unprocessable Content"
     },
 
     "internal_server_error": {
