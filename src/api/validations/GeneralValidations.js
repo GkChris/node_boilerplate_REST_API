@@ -25,7 +25,7 @@ function uuid4_validation(id){
     else if ( !uuid4.valid(id) ) errorMessage = 'Invalid id'
 
     if ( !errorMessage ) return true;
-    throw new Error(`${statusCodes.unprocessable_content.msg} | mongoose_ObjectId_validation | ${errorMessage}`) 
+    throw new Error(`${statusCodes.unprocessable_content.msg} | uuid4_validation | ${errorMessage}`) 
 }
 
 function six_digit_code_validation(code){
