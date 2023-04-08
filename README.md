@@ -1,6 +1,6 @@
 ## Description
 
-This is a fast deployment / easy-to-use Node.js server.
+This is a fast deployment / easy-to-use Node.js server for REST APIs.
 
 ## Installation & Execution
 
