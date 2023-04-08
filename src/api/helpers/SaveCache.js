@@ -1,5 +1,9 @@
 const cache = require('../../config').CacheConfigurations;
 
-module.exports = (originalUrl, response) => {
-    cache.set(originalUrl, response)
-};
+function set_cache(originalUrl, response){
+    return cache.set(originalUrl, response)
+}
+
+module.exports = {
+    set_cache
+}

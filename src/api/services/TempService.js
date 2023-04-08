@@ -1,4 +1,10 @@
-const statusCodes = require('../../config').StatusCodes
+const config = require('../../config');
+const helpers = require('../helpers');
+
+const requests = helpers.Requests;
+const statusCodes = config.StatusCodes
+const customCodes = config.CustomCodes;
+
 
 function get_success(){
     return new Promise((resolve, reject) => {
