@@ -85,7 +85,6 @@ function typeof_switch_case(key, value){
 
         case ( 'undefined' ): {
             invalid_args.push(`argument: ${key}, reason: undefined value detected`)        
-
             break;
         } 
 
@@ -93,7 +92,6 @@ function typeof_switch_case(key, value){
 
             if ( value === null ) {
                 invalid_args.push(`argument: ${key}, reason: null value detected`)        
-
                 break; 
             } 
             
