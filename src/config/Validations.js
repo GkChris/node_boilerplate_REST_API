@@ -1,4 +1,5 @@
 module.exports = {
-    max_input_length: 100,
-    max_big_input_length: 500
+    max_string_length: 100,
+    max_token_length: 1000,
+    max_number_length: 9999999999999
 }

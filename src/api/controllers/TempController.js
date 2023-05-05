@@ -21,6 +21,7 @@ router.route(routes.getSuccess)
     .get(async(req, res, next) => {
 
     try {
+        generalValidations.is_content_valid(req.query)
         await tempService.get_success()
     } catch ( error ) {
         return next(error)
@@ -35,6 +36,7 @@ router.route(routes.getError)
     .get(async(req, res, next) => {
 
     try {
+        generalValidations.is_content_valid(req.query)
         await tempService.get_error()
     } catch ( error ) {
        return next(error)
