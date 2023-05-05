@@ -42,7 +42,7 @@ function six_digit_code_validation(code){
 
 function is_content_valid(args){
     let invalid_content = [];
-    console.log('GGGGGGGGG'.args);
+
     for ( let arg of Object.entries(args) ) {
 
         let key = arg[0];
