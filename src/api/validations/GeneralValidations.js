@@ -42,7 +42,7 @@ function six_digit_code_validation(code){
 
 function is_content_valid(args){
     let invalid_content = [];
-
+  
     for ( let arg of Object.entries(args) ) {
 
         let key = arg[0];
@@ -55,7 +55,7 @@ function is_content_valid(args){
     }
     
     if ( invalid_content.length == 0 ) return true;
-    throw new Error(`${statusCodes.unprocessable_content.msg} | Invalid content: ${invalid_content}`)
+    throw new Error(`${statusCodes.unprocessable_content.msg} | Invalid content -> ${invalid_content}`)
 }
 
 
@@ -67,14 +67,14 @@ function typeof_switch_case(key, value){
             
         case ( 'string' ): {
             if ( value.length > validations.max_token_length ) {
-                invalid_args.push({argument: key, reason: 'string surpass acceptable size'})
+                invalid_args.push(`argument: ${key}, reason: string surpass acceptable size`)
             }
             break;
         } 
 
         case ( 'number' ): {
             if ( value > validations.max_number_length ) {
-                invalid_args.push({argument: key, reason: 'number surpass acceptable limit'})                    
+                invalid_args.push(`argument: ${key}, reason: number surpass acceptable limit`)        
             }
             break;
         } 
@@ -84,14 +84,16 @@ function typeof_switch_case(key, value){
         } 
 
         case ( 'undefined' ): {
-            invalid_args.push({argument: key, reason: 'undefined value detected'})
+            invalid_args.push(`argument: ${key}, reason: undefined value detected`)        
+
             break;
         } 
 
         case ( 'object' ): {
 
             if ( value === null ) {
-                invalid_args.push({argument: key, reason: 'null value detected'})
+                invalid_args.push(`argument: ${key}, reason: null value detected`)        
+
                 break; 
             } 
             
