@@ -46,6 +46,12 @@ const validate_args = (query, collection, keys, threshold) => {
         throw new Error('keys argument has to be an array of string') 
     }
 
+    for ( let key of keys ) {
+        if ( typeof key !== 'string' ) {
+            throw new Error('keys argument has to be an array of string') 
+        }
+    }
+
     if ( threshold && ( typeof threshold != 'number' || threshold < 0 || threshold > 1 ) ) {
         throw new Error('threshold argument has to be a float number between 0 and 1') 
     }
