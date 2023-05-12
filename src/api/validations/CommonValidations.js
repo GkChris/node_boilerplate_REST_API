@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 const uuid4 = require('uuid4');
 
 const config = require('../../config');
+const JSONdata = require('../data');
 
-const statusCodes = config.StatusCodes;
-const customCodes = config.CustomCodes;
+const statusCodes = JSONdata.StatusCodes;
+const customCodes = JSONdata.CustomCodes;
 const validations = config.Validations;
 
 

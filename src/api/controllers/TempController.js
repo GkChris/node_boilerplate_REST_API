@@ -2,13 +2,16 @@ const express = require('express');
 var router = express.Router();
 
 const config = require('../../config');
+const JSONdata= require('../data');
 const services = require('../services');
 const validations = require('../validations');
 
-const statusCodes = config.StatusCodes;
-const customCodes = config.CustomCodes
-const tempService = services.TempService
-const generalValidations = validations.GeneralValidations;
+const statusCodes = JSONdata.StatusCodes;
+
+const commonSerivces = services.CommonSerivces;
+const commonValidations = validations.CommonValidations;
+
+const tempService = services.TempService;
 
 
 // Module routes
@@ -21,7 +24,7 @@ router.route(routes.getSuccess)
     .get(async(req, res, next) => {
 
     try {
-        generalValidations.is_content_valid(req.query)
+        commonValidations.is_content_valid(req.query)
         await tempService.get_success()
     } catch ( error ) {
         return next(error)
@@ -36,7 +39,7 @@ router.route(routes.getError)
     .get(async(req, res, next) => {
 
     try {
-        generalValidations.is_content_valid(req.query)
+        commonValidations.is_content_valid(req.query)
         await tempService.get_error()
     } catch ( error ) {
        return next(error)

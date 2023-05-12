@@ -15,8 +15,7 @@ const Keys = require('./Keys');
 const ExternalUrls = require('./ExternalUrls');
 const Validations = require('./Validations');
 const Loggers = require('./Loggers');
-const StatusCodes = require('./StatusCodes.json');
-const CustomCodes = require('./CustomCodes.json');
+
 
 module.exports = {
     AppConfigurations,
@@ -27,8 +26,6 @@ module.exports = {
     ExternalUrls,
     Validations,
     Loggers,
-    StatusCodes,
-    CustomCodes
 };
 
 

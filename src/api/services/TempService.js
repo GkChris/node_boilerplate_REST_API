@@ -1,9 +1,12 @@
 const config = require('../../config');
+const JSONdata = require('../data');
 const helpers = require('../helpers');
+const utils = require('../utils');
+
 
 const requests = helpers.Requests;
-const statusCodes = config.StatusCodes
-const customCodes = config.CustomCodes;
+const statusCodes = JSONdata.StatusCodes
+const customCodes = JSONdata.CustomCodes;
 
 
 function get_success(){

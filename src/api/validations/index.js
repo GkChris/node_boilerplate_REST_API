@@ -1,5 +1,5 @@
-const GeneralValidations = require('./GeneralValidations');
+const CommonValidations = require('./CommonValidations');
 
 module.exports = {
-    GeneralValidations
+    CommonValidations
 }

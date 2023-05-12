@@ -1,4 +1,7 @@
-const statusCodes = require('../../config').StatusCodes
+const JSONdata= require('../data');
+
+const statusCodes = JSONdata.StatusCodes;
+
 
 module.exports = (err, req, res, next) => {
 
