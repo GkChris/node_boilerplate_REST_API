@@ -43,7 +43,7 @@ function formatNumber(number, decimalSeparator){
 
     var counter = 0
     const formatted_whole = reversed_whole_toArray.map((char) => {
-          if ( counter === 2 && reversed_whole_toArray.length > 3  ) {
+        if ( counter === 2 && reversed_whole_toArray.length > 3 && index !== reversed_whole_toArray.length - 1 ) {
             counter = 0;
             return `${decimal_point}${char}`
           } 

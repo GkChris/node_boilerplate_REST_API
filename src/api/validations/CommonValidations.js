@@ -60,6 +60,29 @@ function is_content_valid(args){
 }
 
 
+function is_content_missing(args, value_of_missing_content){
+    let missing_content = [];
+    if ( !value_of_missing_content ) {
+        value_of_missing_content = false; // Default missing value
+        console.log(`Missing value_of_missing_content. Default is false`);
+    }
+
+    for ( let arg of Object.entries(args) ) {
+
+        let key = arg[0];
+        let value = arg[1];
+
+        if ( value === value_of_missing_content ) {
+            missing_content.push(`| argument: ${key}`)
+        }
+
+    }
+    
+    if ( missing_content.length == 0 ) return true;
+    throw new Error(`${statusCodes.unprocessable_content.msg} | Missing content -> ${missing_content}`)
+}
+
+
 function typeof_switch_case(key, value){
     let invalid_args = [];
     let passed = false;
@@ -68,14 +91,14 @@ function typeof_switch_case(key, value){
             
         case ( 'string' ): {
             if ( value.length > validations.max_token_length ) {
-                invalid_args.push(`argument: ${key}, reason: string surpass acceptable size`)
+                invalid_args.push(`| argument: ${key}, reason: string surpass acceptable size`)
             }
             break;
         } 
 
         case ( 'number' ): {
             if ( value > validations.max_number_length ) {
-                invalid_args.push(`argument: ${key}, reason: number surpass acceptable limit`)        
+                invalid_args.push(`| argument: ${key}, reason: number surpass acceptable limit`)        
             }
             break;
         } 
@@ -85,14 +108,14 @@ function typeof_switch_case(key, value){
         } 
 
         case ( 'undefined' ): {
-            invalid_args.push(`argument: ${key}, reason: undefined value detected`)        
+            invalid_args.push(`| argument: ${key}, reason: undefined value detected`)        
             break;
         } 
 
         case ( 'object' ): {
 
             if ( value === null ) {
-                invalid_args.push(`argument: ${key}, reason: null value detected`)        
+                invalid_args.push(`| argument: ${key}, reason: null value detected`)        
                 break; 
             } 
             
@@ -139,5 +162,6 @@ module.exports = {
     mongoose_ObjectId_validation,
     uuid4_validation,
     six_digit_code_validation,
-    is_content_valid
+    is_content_valid,
+    is_content_missing
 }
