@@ -1,12 +1,12 @@
-function paginate(data, currentPage, pageSize){
+function paginate(dataArray, currentPageNumber, itemsPerPage){
     
     try { 
-        validate_args(data, currentPage, pageSize)
+        validate_args(dataArray, currentPageNumber, itemsPerPage)
     
-        const firstItemPosition = currentPage !== 1 ? ( currentPage - 1 ) * pageSize : 0
-        const endingPosition = currentPage !== 1 ? currentPage * pageSize : pageSize
+        const firstItemPosition = currentPageNumber !== 1 ? ( currentPageNumber - 1 ) * itemsPerPage : 0
+        const endingPosition = currentPageNumber !== 1 ? currentPageNumber * itemsPerPage : itemsPerPage
         
-        return data.slice(firstItemPosition, endingPosition)
+        return dataArray.slice(firstItemPosition, endingPosition)
 
     } catch ( error ) {
         throw new Error(error);
@@ -14,18 +14,18 @@ function paginate(data, currentPage, pageSize){
 }
 
 
-const validate_args = (data, currentPage, pageSize) => {
+const validate_args = (dataArray, currentPageNumber, itemsPerPage) => {
 
-    if ( !Array.isArray(data) ) {
-        throw new Error('data argument has to be an array') 
+    if ( !Array.isArray(dataArray) ) {
+        throw new Error('dataArray argument has to be an array') 
     }
 
-    if ( typeof currentPage != 'number' || currentPage < 1 ) {
-        throw new Error('currentPage argument has to be a positive number greater than zero') 
+    if ( typeof currentPageNumber != 'number' || currentPageNumber < 1 ) {
+        throw new Error('currentPageNumber argument has to be a positive number greater than zero') 
     }
 
-    if ( typeof pageSize != 'number' || pageSize < 1 ) {
-        throw new Error('pageSize argument has to be a positive number greater than zero') 
+    if ( typeof itemsPerPage != 'number' || itemsPerPage < 1 ) {
+        throw new Error('itemsPerPage argument has to be a positive number greater than zero') 
     }
 
     return;
