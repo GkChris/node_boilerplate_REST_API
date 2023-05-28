@@ -62,6 +62,11 @@ function is_content_valid(args){
 
 function is_content_missing(args, value_of_missing_content){
     let missing_content = [];
+    
+    if ( Object.prototype.toString.call(args) !== '[object Object]' ) {
+        throw new Error(`is_content_missing typeError. Expecting an object as first argument`)
+    }
+    
     if ( !value_of_missing_content ) {
         value_of_missing_content = false; // Default missing value
         console.log(`Missing value_of_missing_content. Default is false`);

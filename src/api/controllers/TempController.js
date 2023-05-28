@@ -23,30 +23,38 @@ const routes = {
 router.route(routes.getSuccess)
     .get(async(req, res, next) => {
 
-    try {
-        commonValidations.is_content_valid(req.query)
-        await tempService.get_success()
-    } catch ( error ) {
-        return next(error)
-    }
+        const randomArgument = req.query?.randomArgument ? req.query.randomArgument : true;
 
-    res.locals.message = statusCodes.ok.msg;
-    return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
+        try {
+            commonValidations.is_content_valid(req.query);
+            commonValidations.is_content_missing({randomArgument});
+
+            await tempService.get_success();
+        } catch ( error ) {
+            return next(error);
+        }
+
+        res.locals.message = statusCodes.ok.msg;
+        return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg});
 });
 
 
 router.route(routes.getError)
     .get(async(req, res, next) => {
 
-    try {
-        commonValidations.is_content_valid(req.query)
-        await tempService.get_error()
-    } catch ( error ) {
-       return next(error)
-    }   
+        const randomArgument = req.query?.randomArgument ? req.query.randomArgument : false;
 
-    res.locals.message = statusCodes.ok.msg;
-    return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
+        try {
+            commonValidations.is_content_valid(req.query);
+            commonValidations.is_content_missing({randomArgument});
+
+            await tempService.get_error()
+        } catch ( error ) {
+            return next(error)
+        }   
+
+        res.locals.message = statusCodes.ok.msg;
+        return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
 });
 
 
