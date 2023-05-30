@@ -11,7 +11,7 @@ const statusCodes = JSONdata.StatusCodes;
 const commonSerivces = services.CommonSerivces;
 const commonValidations = validations.CommonValidations;
 
-const tempService = services.TempService;
+const TempService = services.TempService;
 
 
 // Module routes
@@ -29,7 +29,7 @@ router.route(routes.getSuccess)
             commonValidations.is_content_valid(req.query);
             commonValidations.is_content_missing({randomArgument});
 
-            await tempService.get_success();
+            await TempService.get_success();
         } catch ( error ) {
             return next(error);
         }
@@ -48,7 +48,7 @@ router.route(routes.getError)
             commonValidations.is_content_valid(req.query);
             commonValidations.is_content_missing({randomArgument});
 
-            await tempService.get_error()
+            await TempService.get_error()
         } catch ( error ) {
             return next(error)
         }   
