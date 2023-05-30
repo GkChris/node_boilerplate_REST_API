@@ -79,7 +79,7 @@ function is_content_missing(args, value_of_missing_content){
         let value = arg[1];
 
         if ( value === value_of_missing_content ) {
-            missing_content.push(`${key}, `)
+            missing_content.push(`${key} `)
         }
 
     }
