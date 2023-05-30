@@ -26,6 +26,11 @@ module.exports = (err, req, res, next) => {
                 message: statusCodes.forbidden.msg,
                 code: statusCodes.forbidden.code });
         }
+        case err.statusCode === statusCodes.not_found.code: {
+            return res.status(statusCodes.not_found.code).json({ 
+                message: statusCodes.not_found.msg,
+                code: statusCodes.not_found.code });
+        }
         case err.statusCode === statusCodes.not_acceptable.code: {
             return res.status(statusCodes.not_acceptable.code).json({ 
                 message: statusCodes.not_acceptable.msg,

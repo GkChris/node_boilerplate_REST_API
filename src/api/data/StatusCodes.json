@@ -30,7 +30,6 @@
         "msg": "Forbidden"
     },
 
-
     "not_found": {
         "code": 404,
         "msg": "Not Found"
