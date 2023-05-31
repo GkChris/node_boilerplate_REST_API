@@ -26,7 +26,6 @@ router.route(routes.getSuccess)
         const randomArgument = req.query?.randomArgument ? req.query.randomArgument : true;
 
         try {
-            commonValidations.is_content_valid(req.query);
             commonValidations.is_content_missing({randomArgument});
 
             await TempService.get_success();
@@ -45,7 +44,6 @@ router.route(routes.getError)
         const randomArgument = req.query?.randomArgument ? req.query.randomArgument : false;
 
         try {
-            commonValidations.is_content_valid(req.query);
             commonValidations.is_content_missing({randomArgument});
 
             await TempService.get_error()
