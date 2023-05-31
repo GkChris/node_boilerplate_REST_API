@@ -1,6 +1,6 @@
 const statusCodes = require('../data').StatusCodes;
 
-class TypeErrorError extends Error {
+class TypeErrorCustom extends Error {
     constructor(message) {
         super(message);
         this.code = 'ERR_TYPE_ERROR';
@@ -10,4 +10,4 @@ class TypeErrorError extends Error {
     }
 }
   
-module.exports = TypeErrorError;
+module.exports = TypeErrorCustom;

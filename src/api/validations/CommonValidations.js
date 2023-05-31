@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const uuid4 = require('uuid4');
 
 const ValidationFailureError = require('../errors/ValidationError');
-const TypeErrorError = require('../errors/TypeErrorError');
+const TypeErrorCustom = require('../errors/TypeErrorCustom');
 
 const config = require('../../config');
 const JSONdata = require('../data');
@@ -65,7 +65,7 @@ function is_content_missing(args, value_of_missing_content){
     let missing_content = [];
     
     if ( Object.prototype.toString.call(args) !== '[object Object]' ) {
-        throw new TypeErrorError(`During "is_content_missing" validation. Expecting an object as first argument`)
+        throw new TypeErrorCustom(`During "is_content_missing" validation. Expecting an object as first argument`)
     }
     
     if ( !value_of_missing_content ) {
