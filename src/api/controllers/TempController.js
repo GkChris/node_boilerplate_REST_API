@@ -8,8 +8,8 @@ const validations = require('../validations');
 
 const statusCodes = JSONdata.StatusCodes;
 
-const commonSerivces = services.CommonSerivces;
-const commonValidations = validations.CommonValidations;
+const CommonServices = services.CommonServices;
+const CommonValidations = validations.CommonValidations;
 
 const TempService = services.TempService;
 
@@ -26,7 +26,7 @@ router.route(routes.getSuccess)
         const randomArgument = req.query?.randomArgument ? req.query.randomArgument : true;
 
         try {
-            commonValidations.is_content_missing({randomArgument});
+            CommonValidations.is_content_missing({randomArgument});
 
             await TempService.get_success();
         } catch ( error ) {
@@ -44,7 +44,7 @@ router.route(routes.getError)
         const randomArgument = req.query?.randomArgument ? req.query.randomArgument : false;
 
         try {
-            commonValidations.is_content_missing({randomArgument});
+            CommonValidations.is_content_missing({randomArgument});
 
             await TempService.get_error()
         } catch ( error ) {

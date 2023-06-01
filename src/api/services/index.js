@@ -1,7 +1,7 @@
-const CommonSerivces = require('./CommonlServices');
+const CommonServices = require('./CommonlServices');
 const TempService = require('./TempService');
 
 module.exports = {
-    CommonSerivces,
+    CommonServices,
     TempService
 }
