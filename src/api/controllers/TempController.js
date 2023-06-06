@@ -23,7 +23,7 @@ const routes = {
 router.route(routes.getSuccess)
     .get(async(req, res, next) => {
 
-        const randomArgument = req.query?.hasOwnProperty('randomArgument') ? req.query.randomArgument : null;
+        const randomArgument = req.query?.hasOwnProperty('randomArgument') ? req.query.randomArgument : undefined;
 
         try {
             CommonValidations.is_content_missing({randomArgument});
@@ -41,7 +41,7 @@ router.route(routes.getSuccess)
 router.route(routes.getError)
     .get(async(req, res, next) => {
 
-        const randomArgument = req.query?.hasOwnProperty('randomArgument') ? req.query.randomArgument : null;
+        const randomArgument = req.query?.hasOwnProperty('randomArgument') ? req.query.randomArgument : undefined;
 
         try {
             CommonValidations.is_content_missing({randomArgument});
