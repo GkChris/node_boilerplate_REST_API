@@ -23,7 +23,9 @@ const routes = {
 router.route(routes.getSuccess)
     .get(async(req, res, next) => {
 
-        const randomArgument = req.query?.hasOwnProperty('randomArgument') ? req.query.randomArgument : undefined;
+        console.log(req.auth);
+
+        const randomArgument = req.query?.hasOwnProperty('randomArgument') ? req.query.randomArgument : true;
 
         try {
             CommonValidations.is_content_missing({randomArgument});
