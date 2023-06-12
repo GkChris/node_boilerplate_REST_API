@@ -1,8 +1,11 @@
 const axios = require('axios')
 
-const authServerURI = 'http://localhost:38080';
-const realm = 'Development';
-const client = 'Main';
+const AuthConfig = require('../../config').AuthConfigurations;
+ 
+const authServerURI = AuthConfig.authServerURI;
+const realm = AuthConfig.realmName;
+const client = AuthConfig.clientName;
+
 
 module.exports = async (req, res, next) => {
 
@@ -11,14 +14,15 @@ module.exports = async (req, res, next) => {
         const token = req.headers?.token;
 
         if ( !token ) return next()
- 
-        const authResponse = await axios.get(`http://localhost:38080/users/verify/${realm}/${client}`, {headers: {token}})
-        
+
+        const authResponse = await axios.get(`${authServerURI}/users/verify/${realm}/${client}`, {headers: {token}})
+
         req.auth = authResponse?.data?.data?.user;
 
         return next()
     }
     catch (error) {
-        return next(error)
+        console.log('error',error);
+        return next()
     }
 }

@@ -16,7 +16,7 @@ const ExternalUrls = require('./ExternalUrls');
 const Validations = require('./Validations');
 const Loggers = require('./Loggers');
 const ErrorHandlerConfigurations = require('./ErrorHandlerConfigurations')
-
+const AuthConfigurations = require('./AuthConfigurations');
 
 module.exports = {
     AppConfigurations,
@@ -27,7 +27,8 @@ module.exports = {
     ExternalUrls,
     Validations,
     Loggers,
-    ErrorHandlerConfigurations
+    ErrorHandlerConfigurations,
+    AuthConfigurations,
 };
 
 
