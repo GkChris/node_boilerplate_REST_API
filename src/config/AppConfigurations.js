@@ -1,5 +1,3 @@
-require('dotenv');
-
 module.exports = {
     backend_name: 'MVC Boiler',
     version: 'V.1.0',
