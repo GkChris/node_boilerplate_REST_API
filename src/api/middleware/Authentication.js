@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
 
         const authResponse = await axios.get(`${authServerURI}/users/verify/${realm}/${client}`, {headers: {token}})
 
-        req.auth = authResponse?.data?.data?.user;
+        req.auth = authResponse?.data?.data;
 
         return next()
     }

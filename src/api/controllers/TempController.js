@@ -12,18 +12,18 @@ const CommonServices = services.CommonServices;
 const CommonValidations = validations.CommonValidations;
 
 const TempService = services.TempService;
+const AuthService = services.AuthService;
 
 
 // Module routes
 const routes = {
-    getSuccess: '/getSuccess$',
-    getError: '/getError$'
+    getSuccess: '/getSuccess',
+    getError: '/getError',
+    testAuth: '/testAuth',
 }
 
 router.route(routes.getSuccess)
     .get(async(req, res, next) => {
-
-        console.log(req.auth);
 
         const randomArgument = req.query?.hasOwnProperty('randomArgument') ? req.query.randomArgument : true;
 
@@ -56,6 +56,31 @@ router.route(routes.getError)
         res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
 });
+
+
+
+router.route(routes.testAuth)
+    .get(async(req, res, next) => {
+
+        const auth = req.auth;
+        const requiredPermissions = ['admin_panel_access', 'read_basic'];
+
+        try {
+            
+            AuthService.isLogged(auth);
+            
+            // {user, session}, ['permission_code_1', 'permission_code_2']
+            AuthService.hasPermissions(auth, requiredPermissions)
+
+
+        } catch ( error ) {
+            return next(error)
+        }   
+
+        res.locals.message = statusCodes.ok.msg;
+        return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
+});
+
 
 
 module.exports = router;
