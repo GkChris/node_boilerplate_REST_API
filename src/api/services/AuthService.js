@@ -54,7 +54,9 @@ function register(payload){
 
         try {
 
-            await requests.register(payload);
+            const user = await requests.register(payload);
+
+            return resolve(user);
 
         } catch ( error ) {
             return reject(error)

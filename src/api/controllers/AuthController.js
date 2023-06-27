@@ -11,7 +11,6 @@ const statusCodes = JSONdata.StatusCodes;
 const CommonServices = services.CommonServices;
 const CommonValidations = validations.CommonValidations;
 
-const TempService = services.TempService;
 const AuthService = services.AuthService;
 
 
@@ -56,14 +55,18 @@ router.route(routes.register)
         try {
             CommonValidations.is_content_missing({payload})
            
-            await AuthService.register(payload)
+            var user = await AuthService.register(payload);
 
         } catch ( error ) {
             return next(error);
         }
 
         res.locals.message = statusCodes.ok.msg;
-        return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg});
+        return res.status(statusCodes.ok.code).json({
+            code: statusCodes.ok.code, 
+            message: statusCodes.ok.msg,
+            data: {user},
+        });
 });
 
 
