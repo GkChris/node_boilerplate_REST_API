@@ -19,7 +19,6 @@ const AuthService = services.AuthService;
 const routes = {
     getSuccess: '/getSuccess',
     getError: '/getError',
-    testAuth: '/testAuth',
 }
 
 router.route(routes.getSuccess)
@@ -49,30 +48,6 @@ router.route(routes.getError)
             CommonValidations.is_content_missing({randomArgument});
 
             await TempService.get_error()
-        } catch ( error ) {
-            return next(error)
-        }   
-
-        res.locals.message = statusCodes.ok.msg;
-        return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
-});
-
-
-
-router.route(routes.testAuth)
-    .get(async(req, res, next) => {
-
-        const auth = req.auth;
-        const requiredPermissions = ['admin_panel_access', 'read_basic'];
-
-        try {
-            
-            AuthService.isLogged(auth);
-            
-            // {user, session}, ['permission_code_1', 'permission_code_2']
-            AuthService.hasPermissions(auth, requiredPermissions)
-
-
         } catch ( error ) {
             return next(error)
         }   

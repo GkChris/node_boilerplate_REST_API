@@ -49,8 +49,24 @@ function hasPermissions(auth, requiredPermissions){
 }
 
 
+function register(payload){
+    return new Promise(async(resolve, reject) => {
+
+        try {
+
+            await requests.register(payload);
+
+        } catch ( error ) {
+            return reject(error)
+        }
+
+    })
+}
+
+
 module.exports = {
     isLogged,
     hasPermissions,
+    register,
 }
 
