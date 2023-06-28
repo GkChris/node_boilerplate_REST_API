@@ -28,6 +28,7 @@ router.route(routes.testAuth)
     .get(async(req, res, next) => {
 
         const auth = req.auth;
+   
         const requiredPermissions = ['admin_panel_access', 'read_basic'];
 
         try {
@@ -55,17 +56,23 @@ router.route(routes.register)
         try {
             CommonValidations.is_content_missing({payload})
            
-            var {user, session, token} = await AuthService.register(payload);
+            var {token} = await AuthService.register(payload);
 
         } catch ( error ) {
             return next(error);
         }
+  
+        res.cookie('authorization', token, {
+            // httpOnly: true,
+            // secure: false,
+            // sameSite: 'strict',
+            // other cookie options (e.g., maxAge, domain, path) if needed
+        });
 
         res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({
             code: statusCodes.ok.code, 
             message: statusCodes.ok.msg,
-            data: {user},
         });
 });
 

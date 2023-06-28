@@ -55,7 +55,7 @@ function register(payload){
         try {
 
             const {user, session, token} = await requests.register(payload);
-
+      
             return resolve({user, session, token});
 
         } catch ( error ) {

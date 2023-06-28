@@ -11,8 +11,8 @@ module.exports = async (req, res, next) => {
 
     try {
         
-        const token = req.headers?.token;
-
+        const token = req.headers?.authorization;
+     
         if ( !token ) return next()
 
         const authResponse = await axios.get(`${authServerURI}/users/verify/${realm}/${client}`, {headers: {token}})
