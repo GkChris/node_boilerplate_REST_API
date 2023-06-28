@@ -55,7 +55,7 @@ router.route(routes.register)
         try {
             CommonValidations.is_content_missing({payload})
            
-            var user = await AuthService.register(payload);
+            var {user, session, token} = await AuthService.register(payload);
 
         } catch ( error ) {
             return next(error);

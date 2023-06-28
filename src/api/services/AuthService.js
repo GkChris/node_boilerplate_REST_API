@@ -54,9 +54,9 @@ function register(payload){
 
         try {
 
-            const user = await requests.register(payload);
+            const {user, session, token} = await requests.register(payload);
 
-            return resolve(user);
+            return resolve({user, session, token});
 
         } catch ( error ) {
             return reject(error)

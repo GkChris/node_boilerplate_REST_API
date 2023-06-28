@@ -15,7 +15,7 @@ function register(payload){
 
             const authResponse = await axios.post(`${authServerURI}/users/create`, {data: payload});
             
-            return resolve(authResponse?.data?.data?.user);
+            return resolve(authResponse?.data?.data);
 
         } catch ( error ) {
             return reject(new GatewayError(error));
