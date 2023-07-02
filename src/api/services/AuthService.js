@@ -103,7 +103,7 @@ function logout(userId, token){
 
         try {
 
-            await requests.login(userId, token);
+            await requests.logout(userId, token);
       
             return resolve();
 

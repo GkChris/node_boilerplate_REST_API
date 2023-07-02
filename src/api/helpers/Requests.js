@@ -49,7 +49,7 @@ function logout(userId, token){
        
         try {
 
-            const authResponse = await axios.post(`${authServerURI}/users/logout/${userId}`, {headers: {token}});
+            const authResponse = await axios.post(`${authServerURI}/users/logout/${userId}`, {}, {headers: {token}});
             
             return resolve(authResponse?.data?.data);
 

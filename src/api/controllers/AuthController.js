@@ -19,7 +19,7 @@ const routes = {
     testAuth: '/testAuth',
     register: '/register',
     login: '/login',
-    logout: 'logout',
+    logout: '/logout',
 }
 
 
@@ -104,7 +104,7 @@ router.route(routes.login)
 
 router.route(routes.logout)
     .post(async(req, res, next) => {
-
+        
         const auth = req.auth;
         const userId = auth?.user?._id;
         const token = auth?.token;
@@ -112,6 +112,8 @@ router.route(routes.logout)
         try {
 
             await AuthService.logout(userId, token);
+
+            res.clearCookie('authorization');
            
         } catch ( error ) {
             return next(error)
