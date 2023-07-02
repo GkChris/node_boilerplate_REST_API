@@ -75,35 +75,53 @@ router.route(routes.register)
 
 
 router.route(routes.login)
-    .get(async(req, res, next) => {
+    .post(async(req, res, next) => {
 
-        const auth = req.auth;
+        const payload = req.body?.data;
 
         try {
+            CommonValidations.is_content_missing({payload})
            
+            const { found, validated, user, options, token } = await AuthService.login(payload);
+
+            if ( user ) AuthService.createCookie(res, {options, token});
+
+            var repsponseData = { found, validated, user }
+            
         } catch ( error ) {
             return next(error)
         }   
 
         res.locals.message = statusCodes.ok.msg;
-        return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
+        return res.status(statusCodes.ok.code).json({
+            code: statusCodes.ok.code, 
+            message: statusCodes.ok.msg,
+            data: repsponseData,
+        })
 });
 
 
 
 router.route(routes.logout)
-    .get(async(req, res, next) => {
+    .post(async(req, res, next) => {
 
         const auth = req.auth;
+        const userId = auth?.user?._id;
+        const token = auth?.token;
 
         try {
+
+            await AuthService.logout(userId, token);
            
         } catch ( error ) {
             return next(error)
         }   
 
         res.locals.message = statusCodes.ok.msg;
-        return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
+        return res.status(statusCodes.ok.code).json({
+            code: statusCodes.ok.code, 
+            message: statusCodes.ok.msg,
+        })
 });
 
 

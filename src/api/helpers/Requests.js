@@ -13,7 +13,43 @@ function register(payload){
        
         try {
 
-            const authResponse = await axios.post(`${authServerURI}/users/create`, {data: payload});
+            const authResponse = await axios.post(`${authServerURI}/users/register`, {data: payload});
+            
+            return resolve(authResponse?.data?.data);
+
+        } catch ( error ) {
+            return reject(new GatewayError(error));
+        }
+
+    })
+}
+
+
+
+function login(payload){
+    return new Promise(async(resolve, reject) => {
+       
+        try {
+
+            const authResponse = await axios.post(`${authServerURI}/users/login`, {data: payload});
+            
+            return resolve(authResponse?.data?.data);
+
+        } catch ( error ) {
+            return reject(new GatewayError(error));
+        }
+
+    })
+}
+
+
+
+function logout(userId, token){
+    return new Promise(async(resolve, reject) => {
+       
+        try {
+
+            const authResponse = await axios.post(`${authServerURI}/users/logout/${userId}`, {headers: {token}});
             
             return resolve(authResponse?.data?.data);
 
@@ -28,4 +64,6 @@ function register(payload){
 
 module.exports = {
     register,
+    login,
+    logout,
 }

@@ -81,10 +81,46 @@ function register(payload){
 }
 
 
+function login(payload){
+    return new Promise(async(resolve, reject) => {
+
+        try {
+
+            const { found, validated, user, options, token } = await requests.login(payload);
+      
+            return resolve({ found, validated, user, options, token });
+
+        } catch ( error ) {
+            return reject(error)
+        }
+
+    })
+}
+
+
+function logout(userId, token){
+    return new Promise(async(resolve, reject) => {
+
+        try {
+
+            await requests.login(userId, token);
+      
+            return resolve();
+
+        } catch ( error ) {
+            return reject(error)
+        }
+
+    })
+}
+
+
 module.exports = {
     isLogged,
     hasPermissions,
     createCookie,
     register,
+    login, 
+    logout,
 }
 
