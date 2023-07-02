@@ -18,7 +18,7 @@ function register(payload){
             return resolve(authResponse?.data?.data);
 
         } catch ( error ) {
-            return reject(new GatewayError(error));
+            return reject(new GatewayError(error?.message));
         }
 
     })
@@ -36,7 +36,7 @@ function login(payload){
             return resolve(authResponse?.data?.data);
 
         } catch ( error ) {
-            return reject(new GatewayError(error));
+            return reject(new GatewayError(error?.message));
         }
 
     })
@@ -54,7 +54,7 @@ function logout(userId, token){
             return resolve(authResponse?.data?.data);
 
         } catch ( error ) {
-            return reject(new GatewayError(error));
+            return reject(new GatewayError(error?.message));
         }
 
     })
