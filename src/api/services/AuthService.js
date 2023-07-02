@@ -49,14 +49,29 @@ function hasPermissions(auth, requiredPermissions){
 }
 
 
+function createCookie(res, auth){
+    const token = auth.token;
+    const options = auth.options;
+
+    res.cookie('authorization', token, {
+        // httpOnly: true,
+        // secure: false,
+        // sameSite: 'strict',
+        // other cookie options (e.g., maxAge, domain, path) if needed
+        maxAge: options?.maxAge,
+    });
+    return;
+}
+
+
 function register(payload){
     return new Promise(async(resolve, reject) => {
 
         try {
 
-            const {user, session, token} = await requests.register(payload);
+            const {user, session, options, token} = await requests.register(payload);
       
-            return resolve({user, session, token});
+            return resolve({user, session, options, token});
 
         } catch ( error ) {
             return reject(error)
@@ -69,6 +84,7 @@ function register(payload){
 module.exports = {
     isLogged,
     hasPermissions,
+    createCookie,
     register,
 }
 
