@@ -1,12 +1,11 @@
-const statusCodes = require('../data').StatusCodes;
+const customCodes = require('../data').CustomCodes;
 
 class ForbiddenError extends Error {
     constructor(message) {
         super(message);
-        this.code = 'ERR_FORBIDDEN';
-        this.statusCode = statusCodes.forbidden.code,
-        this.statusMessage = statusCodes.forbidden.msg;
-        this.message = message
+        this.errorMessage = customCodes.ForbiddenError.message;
+        this.errorCode = customCodes.ForbiddenError.code,
+        this.errorDetails = message
     }
 }
   

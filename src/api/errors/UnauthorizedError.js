@@ -1,12 +1,11 @@
-const statusCodes = require('../data').StatusCodes;
+const customCodes = require('../data').CustomCodes;
 
 class UnauthorizedError extends Error {
     constructor(message) {
         super(message);
-        this.code = 'ERR_UNAUTHORIZED';
-        this.statusCode = statusCodes.unauthorized.code,
-        this.statusMessage = statusCodes.unauthorized.msg;
-        this.message = message
+        this.errorMessage = customCodes.UnauthorizedError.message;
+        this.errorCode = customCodes.UnauthorizedError.code,
+        this.errorDetails = message
     }
 }
   

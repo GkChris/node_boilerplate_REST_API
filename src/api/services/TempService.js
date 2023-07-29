@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const FunctionalityError = require('../errors/FunctionalityError');
+
 const config = require('../../config');
 const JSONdata = require('../data');
 const helpers = require('../helpers');
@@ -21,7 +23,7 @@ function get_success(){
 
 function get_error(){
     return new Promise((resolve, reject) => {
-        reject(new Error(`${statusCodes.internal_server_error.msg} | ${'This is a temp promise that is meant to fail'}`))
+        reject(new FunctionalityError('Get Error'))
         return
     })
 }

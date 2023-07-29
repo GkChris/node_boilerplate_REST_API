@@ -1,12 +1,11 @@
-const statusCodes = require('../data').StatusCodes;
+const customCodes = require('../data').CustomCodes;
 
 class GatewayError extends Error {
     constructor(message) {
         super(message);
-        this.code = 'ERR_BAD_GATEWAY';
-        this.statusCode = statusCodes.bad_gateway.code,
-        this.statusMessage = statusCodes.bad_gateway.msg;
-        this.message = message
+        this.errorMessage = customCodes.GatewayError.message;
+        this.errorCode = customCodes.GatewayError.code,
+        this.errorDetails = message
     }
 }
   
