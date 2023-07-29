@@ -38,5 +38,13 @@
     "ValidationFailureError": {
         "message": "ERR_VALIDATION_FAILURE",
         "code": 6000
+    },
+    "AuthRequestError": {
+        "message": "ERR_AUTH_REQUEST",
+        "code": 6010
+    },
+    "RequestError": {
+        "message": "ERR_REQUEST",
+        "code": 6011
     }
 }

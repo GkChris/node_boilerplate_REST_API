@@ -2,6 +2,7 @@ const axios = require('axios');
 
 const FunctionalityError = require('../errors/FunctionalityError');
 const GatewayError = require('../errors/GatewayError');
+const AuthRequestError = require('../errors/AuthRequestError');
 
 const config = require('../../config'); 
 
@@ -15,6 +16,8 @@ function register(payload){
 
             const authResponse = await axios.post(`${authServerURI}/users/register`, {data: payload});
             
+            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error))
+
             return resolve(authResponse?.data?.data);
 
         } catch ( error ) {
@@ -32,6 +35,8 @@ function login(payload){
         try {
 
             const authResponse = await axios.post(`${authServerURI}/users/login`, {data: payload});
+
+            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error))
             
             return resolve(authResponse?.data?.data);
 
@@ -50,6 +55,8 @@ function logout(userId, token){
         try {
 
             const authResponse = await axios.post(`${authServerURI}/users/logout/${userId}`, {}, {headers: {token}});
+
+            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error))
             
             return resolve(authResponse?.data?.data);
 
