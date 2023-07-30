@@ -16,7 +16,7 @@ function register(payload){
 
             const authResponse = await axios.post(`${authServerURI}/users/register`, {data: payload});
             
-            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error))
+            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error?.details))
 
             return resolve(authResponse?.data?.data);
 
@@ -36,7 +36,7 @@ function login(payload){
 
             const authResponse = await axios.post(`${authServerURI}/users/login`, {data: payload});
 
-            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error))
+            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error?.details))
             
             return resolve(authResponse?.data?.data);
 
@@ -56,7 +56,7 @@ function logout(userId, token){
 
             const authResponse = await axios.post(`${authServerURI}/users/logout/${userId}`, {}, {headers: {token}});
 
-            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error))
+            if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error?.details))
             
             return resolve(authResponse?.data?.data);
 
