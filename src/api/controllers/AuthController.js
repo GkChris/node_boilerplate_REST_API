@@ -1,6 +1,8 @@
 const express = require('express');
 var router = express.Router();
 
+const UnauthorizedError = require('../errors/UnauthorizedError');
+
 const config = require('../../config');
 const JSONdata= require('../data');
 const services = require('../services');
@@ -20,6 +22,7 @@ const routes = {
     register: '/register',
     login: '/login',
     logout: '/logout',
+    verify: '/verify',
 }
 
 
@@ -118,6 +121,23 @@ router.route(routes.logout)
         } catch ( error ) {
             return next(error)
         }   
+
+        res.locals.message = statusCodes.ok.msg;
+        return res.status(statusCodes.ok.code).json({
+            code: statusCodes.ok.code, 
+            message: statusCodes.ok.msg,
+        })
+});
+
+
+router.route(routes.verify)
+    .get(async(req, res, next) => {
+        
+        const auth = req.auth;
+
+        if ( !auth ) {
+            return next(new UnauthorizedError('Unauthorized'))
+        }
 
         res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({
