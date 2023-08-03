@@ -1,10 +1,10 @@
-const customCodes = require('../data').CustomCodes;
+const errorCodes = require('../data').ErrorCodes;
 
 class RequestError extends Error {
     constructor(message) {
         super(message);
-        this.errorMessage = customCodes.RequestError.message;
-        this.errorCode = customCodes.RequestError.code,
+        this.errorMessage = errorCodes.RequestError.message;
+        this.errorCode = errorCodes.RequestError.code,
         this.errorDetails = message
     }
 }

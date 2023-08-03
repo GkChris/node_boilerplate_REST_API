@@ -1,9 +1,9 @@
 const Currencies = require('./Currencies.json');
-const CustomCodes = require('./CustomCodes.json');
+const ErrorCodes = require('./ErrorCodes.json');
 const StatusCodes = require('./StatusCodes.json');
 
 module.exports = {
     Currencies,
-    CustomCodes,
+    ErrorCodes,
     StatusCodes
 }
