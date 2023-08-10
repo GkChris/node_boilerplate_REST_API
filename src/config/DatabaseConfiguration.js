@@ -1,7 +1,7 @@
 'use strict';
 const mongoose = require('mongoose');
 
-const db = process.env.DB || 'mongodb://localhost:27017/mvcboiler'
+const db = process.env.DB || 'mongodb://127.0.0.1:27017/mvcboiler'
 
 const TestSchema = require('../api/models/Test');
 

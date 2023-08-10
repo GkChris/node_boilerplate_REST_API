@@ -20,7 +20,7 @@ const loggers = config.Loggers;
 var app = express();
 
 // Middleware
-if (process.env.NODE_ENV == 'development') app.use(cors({ credentials: true, origin: 'http://localhost:3000'}))
+if (process.env.NODE_ENV == 'development') app.use(cors({ credentials: true, origin: 'http://127.0.0.1:3000'}))
 app.use(helmet());
 app.use(morgan(loggers));
 app.use(bodyParser.json())
