@@ -14,7 +14,7 @@ const helpers = require('../helpers');
 const utils = require('../utils');
 const validations = require('../validations');
 
-
+const Domains = config.ExternalUrls;
 const models = config.DatabaseConfigurations;
 const requests = helpers.Requests;
 const statusCodes = JSONdata.StatusCodes
@@ -58,6 +58,7 @@ function createCookie(res, auth){
         secure: process.env.NODE_ENV === 'production' ? true : false,
         // sameSite: 'strict',
         // other cookie options (e.g., maxAge, domain, path) if needed
+        domain: Domains.MAIN_CLIENT,
         maxAge: options?.maxAge,
     });
     return;
