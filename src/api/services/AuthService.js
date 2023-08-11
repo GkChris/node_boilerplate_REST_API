@@ -54,13 +54,14 @@ function createCookie(res, auth){
     const options = auth.options;
 
     res.cookie('authorization', token, {
-        // httpOnly: true,
-        // secure: false,
+        httpOnly: process.env.NODE_ENV === 'production' ? true : false,
+        secure: process.env.NODE_ENV === 'production' ? true : false,
         // sameSite: 'strict',
         // other cookie options (e.g., maxAge, domain, path) if needed
         maxAge: options?.maxAge,
     });
     return;
+    
 }
 
 
