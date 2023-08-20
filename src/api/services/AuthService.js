@@ -14,7 +14,7 @@ const helpers = require('../helpers');
 const utils = require('../utils');
 const validations = require('../validations');
 
-const Domains = config.ExternalUrls;
+const Domains = config.Domains;
 const models = config.DatabaseConfigurations;
 const requests = helpers.Requests;
 const statusCodes = JSONdata.StatusCodes

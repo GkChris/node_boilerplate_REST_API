@@ -1,17 +1,22 @@
 'use strict';
 const mongoose = require('mongoose');
 
-const username = 'insert_username';
-const password = 'insert_password';
-const dbName = 'mvcboiler'; 
-const dbHost = '127.0.0.1';
-const dbPort = '27017';
-
-const db = `mongodb://${username}:${password}@${dbHost}:${dbPort}/${dbName}`;
-
+/* Database Schemas */
 const TestSchema = require('../api/models/Test');
 
-// Db connection and setup
+/* Configs */
+const username = process.env.DB_USER_USERNAME;
+const password = process.env.DB_USER_PASSWORD;
+const dbName = process.env.DB_NAME;
+const dbHost = process.env.DB_HOST;
+const dbPort = process.env.DB_PORT;
+
+/* Database URI */
+const db = process.env.NODE_ENV === 'development' 
+    ?  `mongodb://${dbHost}:${dbPort}/${dbName}`
+    : `mongodb://${username}:${password}@${dbHost}:${dbPort}/${dbName}`; 
+
+// Db Connection 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to MongoDB');
@@ -19,8 +24,12 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((err) => {
         console.error('Error connecting to MongoDB:', err.message);
     });
+
+/* Setting Promise Implementation */
 mongoose.Promise = Promise;
 
+/* Export Database URI */ 
 module.exports.database = db;
 
+/* Export Models */
 module.exports.Test = mongoose.model('Test', TestSchema);

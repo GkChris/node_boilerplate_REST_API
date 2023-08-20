@@ -5,13 +5,13 @@ const RequestError = require('../errors/RequestError');
 
 const AuthConfig = require('../../config').AuthConfigurations;
  
-const authServerURI = AuthConfig.authServerURI;
-const realm = AuthConfig.realmName;
-const client = AuthConfig.clientName;
+const authServerURI = AuthConfig.auth_server_URI;
+const realm = AuthConfig.realm_name;
+const client = AuthConfig.client_name;
 
 
 module.exports = async (req, res, next) => {
-
+    
     try {
         const token = req.headers?.authorization;
      

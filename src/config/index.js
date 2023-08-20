@@ -12,11 +12,11 @@ const DatabaseConfigurations = require('./DatabaseConfiguration');
 const CacheConfigurations = require('./CacheConfigurations');
 const MqttConfigurations = require('./MqttConfigurations');
 const Keys = require('./Keys');
-const ExternalUrls = require('./ExternalUrls');
+const Domains = require('./Domains');
 const Validations = require('./Validations');
-const Loggers = require('./Loggers');
 const ErrorHandlerConfigurations = require('./ErrorHandlerConfigurations')
 const AuthConfigurations = require('./AuthConfigurations');
+const MiddlewareConfigurations = require('./MiddlewareConfigurations');
 
 module.exports = {
     AppConfigurations,
@@ -24,11 +24,11 @@ module.exports = {
     CacheConfigurations,
     MqttConfigurations,
     Keys,
-    ExternalUrls,
+    Domains,
     Validations,
-    Loggers,
     ErrorHandlerConfigurations,
     AuthConfigurations,
+    MiddlewareConfigurations,
 };
 
 

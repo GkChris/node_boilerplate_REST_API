@@ -1,10 +1,10 @@
 {
   "name": "mvc-boilerplate",
-  "version": "1.0.37",
-  "description": "Simple node.js express boilerplace implementing mvc structure.",
+  "version": "1.0.104",
+  "description": "Node.js-Express-MongoDB boilerplace implementing mvc structure.",
   "main": "src/app.js",
   "scripts": {
-    "start": "NODE_ENV=live pm2 start src/app.js -i 1 --max-memory-restart 200M --name MVC Boiler -- --color",
+    "start": "NODE_ENV=production pm2 start src/app.js -i 1 --max-memory-restart 200M --name MVC Boiler -- --color",
     "dev": "NODE_ENV=development nodemon src/app.js --trace-warnings",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
