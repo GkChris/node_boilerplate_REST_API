@@ -36,10 +36,10 @@ router.route(routes.testAuth)
 
         try {
             
-            AuthService.isLogged(auth);
+            AuthService.isLogged(auth); // Check if user is logged
             
-            // {user, session}, ['permission_code_1', 'permission_code_2']
-            AuthService.hasPermissions(auth, requiredPermissions)
+            // [Sampes Data] -> {user, session}, ['permission_code_1', 'permission_code_2']
+            AuthService.hasPermissions(auth, requiredPermissions) // Check if user is logged and has access to required permissions for this actio
 
             AuthService.createCookie(res, auth);
 
@@ -113,7 +113,10 @@ router.route(routes.logout)
         const token = auth?.token;
 
         try {
+            /* Auth Validation */
+            AuthService.isLogged(auth);
 
+            /* Business Logic */
             await AuthService.logout(userId, token);
 
             res.clearCookie('authorization');

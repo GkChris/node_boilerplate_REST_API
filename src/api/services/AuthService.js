@@ -24,7 +24,7 @@ const errorCodes = JSONdata.ErrorCodes;
 function isLogged(auth){
 
     if ( auth?.user ) return true;
-    else throw new UnauthorizedError('Action require authorization')
+    else throw new UnauthorizedError('Action requires authorization')
 
 }
 
@@ -33,7 +33,7 @@ function isLogged(auth){
 function hasPermissions(auth, requiredPermissions){
     
 
-    if ( !auth?.user ) throw new UnauthorizedError('Action require authorization')
+    if ( !auth?.user ) throw new UnauthorizedError('Action requires authorization')
 
     const userPermissions = auth?.user?.roleId?.permissions?.map((permission) => {return permission?.code});
     let missing_permissions = [];
