@@ -13,11 +13,11 @@ const client = AuthConfig.client_name;
 module.exports = async (req, res, next) => {
     
     try {
-        const token = req.headers?.authorization;
+        const authorizationToken = req.headers?.authorization;
      
-        if ( !token ) return next()
+        if ( !authorizationToken ) return next()
    
-        const authResponse = await axios.get(`${authServerURI}/users/verify/${realm}/${client}`, {headers: {token}})
+        const authResponse = await axios.get(`${authServerURI}/users/verify/${realm}/${client}`, {headers: {authorization: authorizationToken}})
         
         if ( authResponse?.data?.error ) return next(new AuthRequestError(authResponse?.data?.error))
 
