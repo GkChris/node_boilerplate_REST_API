@@ -54,7 +54,7 @@ function logout(userId, token){
        
         try {
 
-            const authResponse = await axios.post(`${authServerURI}/users/logout/${userId}`, {}, {headers: {token}});
+            const authResponse = await axios.post(`${authServerURI}/users/logout/${userId}`, {}, {headers: {authorization: token}});
 
             if ( authResponse?.data?.error ) return reject(new AuthRequestError(authResponse?.data?.error?.details))
             
