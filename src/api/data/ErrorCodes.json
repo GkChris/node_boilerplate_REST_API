@@ -63,5 +63,15 @@
         "message": "ERR_UNCATEGORIZED_ERROR",
         "code": 6012,
         "description": ""
+    },
+    "CreateDocumentError": {
+        "message": "ERR_CREATE_DOCUMENT",
+        "code": 6013,
+        "description": ""
+    },
+    "DeleteDocumentError": {
+        "message": "ERR_DELETE_DOCUMENT",
+        "code": 6014,
+        "description": ""
     }
 }

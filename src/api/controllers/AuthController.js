@@ -113,11 +113,8 @@ router.route(routes.logout)
         const token = auth?.token;
 
         try {
-            /* Auth Validation */
-            AuthService.isLogged(auth);
-
             /* Business Logic */
-            await AuthService.logout(userId, token);
+            if ( auth ) await AuthService.logout(userId, token);
 
             res.clearCookie('authorization');
            
