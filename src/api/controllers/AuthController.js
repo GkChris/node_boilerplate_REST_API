@@ -47,7 +47,6 @@ router.route(routes.testAuth)
             return next(error)
         }   
 
-        res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({code: statusCodes.ok.code, message: statusCodes.ok.msg})
 });
 
@@ -68,7 +67,6 @@ router.route(routes.register)
             return next(error);
         }
 
-        res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({
             code: statusCodes.ok.code, 
             message: statusCodes.ok.msg,
