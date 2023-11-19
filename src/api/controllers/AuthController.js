@@ -93,7 +93,6 @@ router.route(routes.login)
             return next(error)
         }   
 
-        res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({
             code: statusCodes.ok.code, 
             message: statusCodes.ok.msg,
@@ -120,7 +119,6 @@ router.route(routes.logout)
             return next(error)
         }   
 
-        res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({
             code: statusCodes.ok.code, 
             message: statusCodes.ok.msg,
@@ -137,7 +135,6 @@ router.route(routes.verify)
             return next(new UnauthorizedError('Unauthorized'))
         }
 
-        res.locals.message = statusCodes.ok.msg;
         return res.status(statusCodes.ok.code).json({
             code: statusCodes.ok.code, 
             message: statusCodes.ok.msg,
