@@ -13,6 +13,7 @@ const statusCodes = JSONdata.StatusCodes;
 const CommonServices = services.CommonServices;
 const CommonValidations = validations.CommonValidations;
 
+const Domains = config.Domains;
 const AuthService = services.AuthService;
 
 
@@ -113,7 +114,11 @@ router.route(routes.logout)
             /* Business Logic */
             if ( auth ) await AuthService.logout(userId, token);
 
-            res.clearCookie('authorization');
+            res.clearCookie('authorization', {
+                secure: process.env.NODE_ENV === 'production' ? true : false,
+                domain: Domains.MAIN_CLIENT.host,
+            });
+            
            
         } catch ( error ) {
             return next(error)
