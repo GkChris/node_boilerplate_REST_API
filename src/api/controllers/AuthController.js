@@ -117,6 +117,7 @@ router.route(routes.logout)
             res.clearCookie('authorization', {
                 secure: process.env.NODE_ENV === 'production' ? true : false,
                 domain: Domains.MAIN_CLIENT.host,
+                sameSite: 'strict',
             });
             
            

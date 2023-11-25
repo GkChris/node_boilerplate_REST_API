@@ -57,7 +57,7 @@ function createCookie(res, auth){
         secure: process.env.NODE_ENV === 'production' ? true : false,
         domain: Domains.MAIN_CLIENT.host,
         maxAge: options?.maxAge,
-        // sameSite: 'strict',
+        sameSite: 'strict',
         // other cookie options (e.g., maxAge, domain, path) if needed
     });
     return;
