@@ -136,10 +136,14 @@ router.route(routes.verify)
     .get(async(req, res, next) => {
         
         const auth = req.auth;
+        const options = auth?.options;
+        const token = auth?.token;
 
         if ( !auth ) {
             return next(new UnauthorizedError('Unauthorized'))
         }
+        
+        AuthService.createCookie(res, {options, token});
 
         return res.status(statusCodes.ok.code).json({
             code: statusCodes.ok.code, 
