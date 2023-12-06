@@ -58,6 +58,7 @@ function createCookie(res, auth){
         domain: Domains.MAIN_CLIENT.host,
         maxAge: options?.maxAge,
         sameSite: 'strict',
+        httpOnly: true,
         // other cookie options (e.g., maxAge, domain, path) if needed
     });
     return;

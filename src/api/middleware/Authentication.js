@@ -17,7 +17,9 @@ const client = AuthConfig.client_name;
 module.exports = async (req, res, next) => {
     
     try {
-        const authorizationToken = req.headers?.authorization;
+        // const authorizationToken = req.headers?.authorization;
+        const authorizationToken = req.cookies?.authorization;
+
         const verifiedReceiver = authorizationToken && authorizationToken === serverSecretKey ? true : false;
      
         if ( !authorizationToken ) return next()

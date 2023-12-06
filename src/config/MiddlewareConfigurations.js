@@ -6,6 +6,7 @@ module.exports = {
     use_helmet: process.env.USE_HELMET === 'true' ? true : false,
     use_logger: process.env.USE_LOGGER === 'true' ? true : false,
     use_body_parser: process.env.USE_BODY_PARSER === 'true' ? true : false,
+    use_cookie_parser: process.env.USE_COOKIE_PARSER === 'true' ? true : false,
     use_content_validation: process.env.USE_CONTENT_VALIDATION === 'true' ? true : false,
     use_router: process.env.USE_ROUTER === 'true' ? true : false,
     use_not_found_response: process.env.USE_NOT_FOUND_RESPONSE === 'true' ? true : false,

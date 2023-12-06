@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser');
 
 const resolvePath = require('path').resolve;
 
@@ -26,6 +27,7 @@ if ( middlewareConfig.use_cors ) app.use(cors({ credentials: true, origin: Domai
 if ( middlewareConfig.use_helmet ) app.use(helmet());
 if ( middlewareConfig.use_logger ) app.use(morgan(require('./api/middleware/Logger')));
 if ( middlewareConfig.use_body_parser ) app.use(bodyParser.json())
+if ( middlewareConfig.use_cookie_parser  ) app.use(cookieParser())
 if ( middlewareConfig.use_cache ) app.use(require('./api/middleware/Cache'));
 if ( middlewareConfig.use_content_validation ) app.use(require('./api/middleware/ValidateContent'));
 if ( middlewareConfig.use_authentication ) app.use(require('./api/middleware/Authentication'));
