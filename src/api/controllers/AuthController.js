@@ -119,6 +119,11 @@ router.route(routes.logout)
                 domain: Domains.MAIN_CLIENT.host,
                 sameSite: 'strict',
             });
+            res.clearCookie('isLogged', {
+                secure: process.env.NODE_ENV === 'production' ? true : false,
+                domain: Domains.MAIN_CLIENT.host,
+                sameSite: 'strict',
+            });
             
            
         } catch ( error ) {
