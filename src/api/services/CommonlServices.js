@@ -7,12 +7,12 @@ const ReferenceDocumentError = require('../errors/ReferenceDocumentError');
 const FunctionalityError = require('../errors/FunctionalityError');
 
 const config = require('../../config');
-const JSONdata = require('../data');
+const JSONdata = require('../../data');
 const helpers = require('../helpers');
 const utils = require('../utils');
 const validations = require('../validations');
 
-const models = config.DatabaseConfigurations;
+const models = config.DatabaseConfig;
 const requests = helpers.Requests;
 const statusCodes = JSONdata.StatusCodes
 const errorCodes = JSONdata.ErrorCodes;

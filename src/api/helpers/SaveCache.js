@@ -1,4 +1,4 @@
-const cache = require('../../config').CacheConfigurations;
+const cache = require('../../config').CacheConfig;
 
 function set_cache(originalUrl, response){
     return cache.set(originalUrl, response)

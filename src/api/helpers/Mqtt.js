@@ -1,7 +1,7 @@
 const statusCodes = require('../../config').StatusCodes
 const mqtt = require('mqtt')
-const mqttConfig = require('../../config').MqttConfigurations
-const backend_name = require('../../config').AppConfigurations.backend_name;
+const mqttConfig = require('../../config').MqttConfig
+const backend_name = require('../../config').AppConfig.backend_name;
 const connectUrl = `mqtt://${mqttConfig.host}:${mqttConfig.port}`     
 const connectOptions = {
     clientId: backend_name,

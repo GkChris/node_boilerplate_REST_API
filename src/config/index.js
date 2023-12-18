@@ -7,28 +7,28 @@ const env = dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 
 if (env.hasOwnProperty('error')) throw new Error('No .env file!');
 
-const AppConfigurations = require('./AppConfigurations');
-const DatabaseConfigurations = require('./DatabaseConfiguration');
-const CacheConfigurations = require('./CacheConfigurations');
-const MqttConfigurations = require('./MqttConfigurations');
-const Keys = require('./Keys');
-const Domains = require('./Domains');
-const Validations = require('./Validations');
-const ErrorHandlerConfigurations = require('./ErrorHandlerConfigurations')
-const AuthConfigurations = require('./AuthConfigurations');
-const MiddlewareConfigurations = require('./MiddlewareConfigurations');
+const AppConfig = require('./AppConfig');
+const DatabaseConfig = require('./DatabaseConfig');
+const CacheConfig = require('./CacheConfig');
+const MqttConfig = require('./MqttConfig');
+const KeyConfig = require('./KeyConfig');
+const DomainConfig = require('./DomainConfig');
+const ValidationConfig = require('./ValidationConfig');
+const ErrorHandlerConfig = require('./ErrorHandlerConfig')
+const AuthConfig = require('./AuthConfig');
+const MiddlewareConfig = require('./MiddlewareConfig');
 
 module.exports = {
-    AppConfigurations,
-    DatabaseConfigurations,
-    CacheConfigurations,
-    MqttConfigurations,
-    Keys,
-    Domains,
-    Validations,
-    ErrorHandlerConfigurations,
-    AuthConfigurations,
-    MiddlewareConfigurations,
+    AppConfig,
+    DatabaseConfig,
+    CacheConfig,
+    MqttConfig,
+    KeyConfig,
+    DomainConfig,
+    ValidationConfig,
+    ErrorHandlerConfig,
+    AuthConfig,
+    MiddlewareConfig,
 };
 
 

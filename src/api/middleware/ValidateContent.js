@@ -1,8 +1,8 @@
 const config = require('../../config');
 const Validations = require('../validations');
-const statusCodes = require('../data').StatusCodes;
+const statusCodes = require('../../data').StatusCodes;
 
-const ErrorHandlerConfigurations = config.ErrorHandlerConfigurations;
+const ErrorHandlerConfigurations = config.ErrorHandlerConfig;
 
 module.exports = (req, res, next) => {
 

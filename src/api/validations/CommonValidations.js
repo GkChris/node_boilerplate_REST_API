@@ -5,9 +5,9 @@ const ValidationFailureError = require('../errors/ValidationError');
 const TypeErrorCustom = require('../errors/TypeErrorCustom');
 
 const config = require('../../config');
-const JSONdata = require('../data');
+const JSONdata = require('../../data');
 
-const validations = config.Validations;
+const validations = config.ValidationConfig;
 
 
 function mongoose_ObjectId_validation(id){

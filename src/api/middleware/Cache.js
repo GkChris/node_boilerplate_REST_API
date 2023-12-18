@@ -1,5 +1,5 @@
-const cache = require('../../config').CacheConfigurations;
-const JSONdata= require('../data');
+const cache = require('../../config').CacheConfig;
+const JSONdata= require('../../data');
 
 const statusCodes = JSONdata.StatusCodes;
 

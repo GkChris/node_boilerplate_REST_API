@@ -1,8 +1,8 @@
 const config = require('../../config');
-const JSONdata = require('../data');
+const JSONdata = require('../../data');
 
 const statusCodes = JSONdata.StatusCodes;
-const ErrorHandlerConfigurations = config.ErrorHandlerConfigurations;
+const ErrorHandlerConfigurations = config.ErrorHandlerConfig;
 
 module.exports = (req, res) => {
 

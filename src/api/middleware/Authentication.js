@@ -5,9 +5,9 @@ const RequestError = require('../errors/RequestError');
 
 const config = require('../../config');
 
-const serverSecretKey = config.Keys.secret_server_key;
+const serverSecretKey = config.KeyConfig.secret_server_key;
 
-const AuthConfig = config.AuthConfigurations;
+const AuthConfig = config.AppConfig;
  
 const authServerURI = AuthConfig.auth_server_URI;
 const realm = AuthConfig.realm_name;

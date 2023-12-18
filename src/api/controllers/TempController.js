@@ -2,7 +2,7 @@ const express = require('express');
 var router = express.Router();
 
 const config = require('../../config');
-const JSONdata= require('../data');
+const JSONdata= require('../../data');
 const services = require('../services');
 const validations = require('../validations');
 

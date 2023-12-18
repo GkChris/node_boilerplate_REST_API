@@ -13,10 +13,10 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 
 const config = require('./config');
-const appConfigurations = config.AppConfigurations;
-const middlewareConfig = config.MiddlewareConfigurations;
-const databaseConfigurations = config.DatabaseConfigurations;
-const Domains = config.Domains;
+const appConfig = config.AppConfig;
+const middlewareConfig = config.MiddlewareConfig;
+const databaseConfig = config.DatabaseConfig;
+const Domains = config.DomainConfig;
 
 
 // Express app initialization
@@ -35,16 +35,16 @@ if ( middlewareConfig.use_router ) app.use(require('./api/routes'));
 if ( middlewareConfig.use_error_handler ) app.use(require('./api/middleware/ErrorHandler'));
 if ( middlewareConfig.use_not_found_response ) app.use(require('./api/middleware/EndpointNotFound')); // Custom 404 middleware
 
-app.listen(appConfigurations.port, appConfigurations.ip, () => {
+app.listen(appConfig.port, appConfig.ip, () => {
 
-  console.log(chalk.yellow(figlet.textSync(appConfigurations.backend_name, { font: 'Slant' })));
-  console.log(chalk.yellow(figlet.textSync(`V.${appConfigurations.version}`, { font: 'Slant' })));
+  console.log(chalk.yellow(figlet.textSync(appConfig.backend_name, { font: 'Slant' })));
+  console.log(chalk.yellow(figlet.textSync(`V.${appConfig.version}`, { font: 'Slant' })));
   
   console.log(chalk.cyanBright('  Server Info'));
   console.log(chalk.cyanBright('  -----------'));
-  console.log(chalk.cyanBright('> IP address: ' + appConfigurations.ip));
-  console.log(chalk.cyanBright('> Port: ' + appConfigurations.port));
-  console.log(chalk.cyanBright('> Database: ' + databaseConfigurations.database));
-  console.log(chalk.cyanBright('> Environment: ' + appConfigurations.environment));
+  console.log(chalk.cyanBright('> IP address: ' + appConfig.ip));
+  console.log(chalk.cyanBright('> Port: ' + appConfig.port));
+  console.log(chalk.cyanBright('> Database: ' + databaseConfig.database));
+  console.log(chalk.cyanBright('> Environment: ' + appConfig.environment));
   console.log('\n');
 });

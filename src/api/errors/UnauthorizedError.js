@@ -1,4 +1,4 @@
-const errorCodes = require('../data').ErrorCodes;
+const errorCodes = require('../../data').ErrorCodes;
 
 class UnauthorizedError extends Error {
     constructor(message) {

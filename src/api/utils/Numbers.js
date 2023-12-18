@@ -1,4 +1,3 @@
-
 function isNumeric(arg){
     if ( !isNaN(arg) ) return true;
     else return false;

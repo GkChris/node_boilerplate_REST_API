@@ -4,7 +4,7 @@ var router = express.Router();
 const UnauthorizedError = require('../errors/UnauthorizedError');
 
 const config = require('../../config');
-const JSONdata= require('../data');
+const JSONdata= require('../../data');
 const services = require('../services');
 const validations = require('../validations');
 
@@ -13,7 +13,7 @@ const statusCodes = JSONdata.StatusCodes;
 const CommonServices = services.CommonServices;
 const CommonValidations = validations.CommonValidations;
 
-const Domains = config.Domains;
+const Domains = config.DomainConfig;
 const AuthService = services.AuthService;
 
 

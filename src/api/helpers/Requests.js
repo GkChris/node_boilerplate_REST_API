@@ -6,7 +6,7 @@ const AuthRequestError = require('../errors/AuthRequestError');
 
 const config = require('../../config'); 
 
-const authServerURI = config.AuthConfigurations.auth_server_URI; 
+const authServerURI = config.AuthConfig.auth_server_URI; 
 
 
 function register(payload){

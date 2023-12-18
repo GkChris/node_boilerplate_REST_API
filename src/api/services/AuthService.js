@@ -9,13 +9,13 @@ const UnauthorizedError = require('../errors/UnauthorizedError');
 const ForbiddenError = require('../errors/ForbiddenError');
 
 const config = require('../../config');
-const JSONdata = require('../data');
+const JSONdata = require('../../data');
 const helpers = require('../helpers');
 const utils = require('../utils');
 const validations = require('../validations');
 
-const Domains = config.Domains;
-const models = config.DatabaseConfigurations;
+const Domains = config.DomainConfig;
+const models = config.DatabaseConfig;
 const requests = helpers.Requests;
 const statusCodes = JSONdata.StatusCodes
 const errorCodes = JSONdata.ErrorCodes;

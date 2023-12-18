@@ -1,6 +1,6 @@
 'use strict';
 const chalk = require('chalk');
-const statusCodes = require('../data').StatusCodes;
+const statusCodes = require('../../data').StatusCodes;
 
 module.exports = (tokens, req, res) => {
 	let status;
