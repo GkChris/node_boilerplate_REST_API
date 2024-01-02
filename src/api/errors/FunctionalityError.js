@@ -6,7 +6,7 @@ class FunctionalityError extends Error {
         this.errorMessage = errorCodes.FunctionalityError.message;
         this.errorCode = errorCodes.FunctionalityError.code;
         this.errorDescription = errorCodes.FunctionalityError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

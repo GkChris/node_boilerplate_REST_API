@@ -6,7 +6,7 @@ class CreateDocumentError extends Error {
         this.errorMessage = errorCodes.CreateDocumentError.message;
         this.errorCode = errorCodes.CreateDocumentError.code;
         this.errorDescription = errorCodes.CreateDocumentError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

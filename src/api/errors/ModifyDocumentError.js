@@ -6,7 +6,7 @@ class ModifyDocumentError extends Error {
         this.errorMessage = errorCodes.ModifyDocumentError.message;
         this.errorCode = errorCodes.ModifyDocumentError.code;
         this.errorDescription = errorCodes.ModifyDocumentError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

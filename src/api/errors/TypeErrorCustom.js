@@ -6,7 +6,7 @@ class TypeErrorCustom extends Error {
         this.errorMessage = errorCodes.TypeErrorCustom.message;
         this.errorCode = errorCodes.TypeErrorCustom.code;
         this.errorDescription = errorCodes.TypeErrorCustom.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

@@ -6,7 +6,7 @@ class GatewayError extends Error {
         this.errorMessage = errorCodes.GatewayError.message;
         this.errorCode = errorCodes.GatewayError.code;
         this.errorDescription = errorCodes.GatewayError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

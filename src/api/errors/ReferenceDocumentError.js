@@ -6,7 +6,7 @@ class ReferenceDocumentError extends Error {
         this.errorMessage = errorCodes.ReferenceDocumentError.message;
         this.errorCode = errorCodes.ReferenceDocumentError.code;
         this.errorDescription = errorCodes.ReferenceDocumentError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

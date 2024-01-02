@@ -6,7 +6,7 @@ class MatchDocumentError extends Error {
         this.errorMessage = errorCodes.MatchDocumentError.message;
         this.errorCode = errorCodes.MatchDocumentError.code;
         this.errorDescription = errorCodes.MatchDocumentError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

@@ -6,7 +6,7 @@ class AuthRequestError extends Error {
         this.errorMessage = errorCodes.AuthRequestError.message;
         this.errorCode = errorCodes.AuthRequestError.code;
         this.errorDescription = errorCodes.AuthRequestError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

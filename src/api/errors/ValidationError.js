@@ -6,7 +6,7 @@ class ValidationFailureError extends Error {
         this.errorMessage = errorCodes.ValidationFailureError.message;
         this.errorCode = errorCodes.ValidationFailureError.code;
         this.errorDescription = errorCodes.ValidationFailureError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

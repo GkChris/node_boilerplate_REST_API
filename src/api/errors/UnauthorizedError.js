@@ -6,7 +6,7 @@ class UnauthorizedError extends Error {
         this.errorMessage = errorCodes.UnauthorizedError.message;
         this.errorCode = errorCodes.UnauthorizedError.code;
         this.errorDescription = errorCodes.UnauthorizedError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

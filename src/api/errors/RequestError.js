@@ -6,7 +6,7 @@ class RequestError extends Error {
         this.errorMessage = errorCodes.RequestError.message;
         this.errorCode = errorCodes.RequestError.code;
         this.errorDescription = errorCodes.RequestError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

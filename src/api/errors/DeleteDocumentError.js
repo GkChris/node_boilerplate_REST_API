@@ -6,7 +6,7 @@ class DeleteDocumentError extends Error {
         this.errorMessage = errorCodes.DeleteDocumentError.message;
         this.errorCode = errorCodes.DeleteDocumentError.code;
         this.errorDescription = errorCodes.DeleteDocumentError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

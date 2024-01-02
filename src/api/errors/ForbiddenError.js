@@ -6,7 +6,7 @@ class ForbiddenError extends Error {
         this.errorMessage = errorCodes.ForbiddenError.message;
         this.errorCode = errorCodes.ForbiddenError.code;
         this.errorDescription = errorCodes.ForbiddenError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   

@@ -6,7 +6,7 @@ class FetchDocumentError extends Error {
         this.errorMessage = errorCodes.FetchDocumentError.message;
         this.errorCode = errorCodes.FetchDocumentError.code;
         this.errorDescription = errorCodes.FetchDocumentError.description;
-        this.errorDetails = message;
+        this.errorDetails = message || "No details";
     }
 }
   
