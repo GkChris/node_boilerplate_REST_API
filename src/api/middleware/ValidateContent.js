@@ -6,7 +6,7 @@ const ErrorHandlerConfigurations = config.ErrorHandlerConfig;
 
 module.exports = (req, res, next) => {
 
-    let attachErrorToResposne = ErrorHandlerConfigurations.attach_error_to_response ? true : false
+    let attachErrorToResposne = ErrorHandlerConfigurations.attach_error_details_to_response ? true : false
 
     try {
     
