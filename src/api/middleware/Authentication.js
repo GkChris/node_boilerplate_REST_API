@@ -7,7 +7,7 @@ const config = require('../../config');
 
 const serverSecretKey = config.KeyConfig.secret_server_key;
 
-const AuthConfig = config.AppConfig;
+const AuthConfig = config.AuthConfig;
  
 const authServerURI = AuthConfig.auth_server_URI;
 const realm = AuthConfig.realm_name;
@@ -17,13 +17,13 @@ const client = AuthConfig.client_name;
 module.exports = async (req, res, next) => {
     
     try {
-        // const authorizationToken = req.headers?.authorization;
         const authorizationToken = req.cookies?.authorization;
+        const authorizationHeader = req.headers?.authorization;
 
-        const verifiedReceiver = authorizationToken && authorizationToken === serverSecretKey ? true : false;
+        const verifiedReceiver = authorizationHeader === serverSecretKey ? true : false;
      
-        if ( !authorizationToken ) return next()
-
+        if ( !verifiedReceiver && !authorizationToken ) return next()
+   
         if ( verifiedReceiver ) {
             req.verifiedReceiver = true;
             return next();
