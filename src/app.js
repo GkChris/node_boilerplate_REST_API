@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
 process.env.FORCE_COLOR = '1';
 const express = require('express');
 const helmet = require('helmet');
